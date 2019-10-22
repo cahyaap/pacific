@@ -1,0 +1,23 @@
+.pms-footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #ffffff;
+    color: #636b6f;
+}
+
+.pms-footer a {
+    color: #636b6f;
+    font-weight: 900;
+}
+
+#load-table {
+    display: none;
+}
+
+.input-error-text {
+    color: red;
+    display: none;
+}
