@@ -8,10 +8,12 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">User</div>
+                    <div class="card-header">User List</div>
 
                     <div class="card-body">
-                        <a class="btn btn-block btn-success" href="#" data-toggle="modal" data-target="#addUser">Add New User</a><br>
+                        <div class="text-right">
+                            <a class="btn btn-success" href="#" data-toggle="modal" data-target="#addUser">Create User</a>
+                        </div><br>
                         <div class="text-center" id="load-table" style="margin: 10px 0;">
                             <span><img src="{{ asset('loading.gif') }}" height="50px">
                                 <p>Loading data, please wait...</p>
@@ -164,7 +166,6 @@
                     id: id
                 },
                 success: function(data) {
-                    console.log(data);
                     getUser('#user-table-container');
                     $('.close').click();
                 }

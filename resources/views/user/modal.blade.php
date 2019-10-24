@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Add New User</h4>
+                <h4 class="modal-title">Create User</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body add-user">

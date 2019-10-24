@@ -17,15 +17,18 @@ class UserController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('user.list', compact(['roles']));
+        $page = "user";
+        return view('user.list', compact(['roles', 'page']));
     }
 
-    public function getUserTable() {
+    public function getUserTable()
+    {
         $users = User::with(['role'])->get();
         return view('user.table', compact(['users']));
     }
 
-    public function getUserData(Request $request) {
+    public function getUserData(Request $request)
+    {
         $user = User::find($request->input('id'));
         return response()->json([
             "message" => "success",
@@ -33,7 +36,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function createUser(Request $request) {
+    public function createUser(Request $request)
+    {
         $userCreated = User::create([
             'role_id' => $request->input('roleId'),
             'name' => $request->input('name'),
@@ -46,7 +50,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function emailChecking (Request $request) {
+    public function emailChecking(Request $request)
+    {
         $user = User::where('email', $request->input('email'))->get();
         $userExist = false;
         if (count($user) > 0) {
@@ -58,7 +63,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function editUser(Request $request) {
+    public function editUser(Request $request)
+    {
         $user = User::find($request->input('id'));
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -70,7 +76,8 @@ class UserController extends Controller
         ]);
     }
 
-    public function changePassword(Request $request) {
+    public function changePassword(Request $request)
+    {
         $user = User::find($request->input('id'));
         $user->password = Hash::make($request->input('password'));
         $user->save();
@@ -80,12 +87,13 @@ class UserController extends Controller
         ]);
     }
 
-    public function deleteUser(Request $request) {
+    public function deleteUser(Request $request)
+    {
         $user = User::find($request->input('id'));
         $user->delete();
         return response()->json([
             "message" => "success",
             "data" => $user
         ]);
-      }
+    }
 }

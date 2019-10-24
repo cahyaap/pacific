@@ -2,11 +2,11 @@
     <table id="user-table">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
+                <th class="text-center">No</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Role</th>
+                <th class="text-center">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@
                 <td class="text-center">
                     <a href="#" id="{{ $user->id }}" class="editUser" data-toggle="modal" data-target="#editUser">Edit</a>
                     @if (Auth::user()->id !== $user->id)
-                    <a href="#" id="{{ $user->id }}" class="deleteUser" data-toggle="modal" data-target="#deleteUser">Hapus</a>
+                    <a href="#" id="{{ $user->id }}" class="deleteUser" data-toggle="modal" data-target="#deleteUser">Delete</a>
                     @endif
                     <a href="#" id="{{ $user->id }}" class="changePassword" data-toggle="modal" data-target="#changePassword">Password</a>
                 </td>
@@ -29,11 +29,11 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Action</th>
+                <th class="text-center">No</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Role</th>
+                <th class="text-center">Action</th>
             </tr>
         </tfoot>
     </table>
