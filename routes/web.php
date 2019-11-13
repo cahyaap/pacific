@@ -31,8 +31,13 @@ Route::post('/user/delete-user', 'UserController@deleteUser')->name('deleteUser'
 
 // demand
 Route::get('/request', 'DemandController@index')->name('request');
-Route::get('/request/get-demand-table', 'DemandController@getDemandTable')->name('getDemandTable');
+Route::get('/request/get-request-data', 'DemandController@getDemandData')->name('getDemandData');
+Route::get('/request/get-request-table', 'DemandController@getDemandTable')->name('getDemandTable');
+Route::get('/request/print-demand', 'DemandController@printDemand')->name('printDemand');
 Route::post('/request/create-request', 'DemandController@createDemand')->name('createDemand');
+Route::post('/request/edit-request', 'DemandController@editDemand')->name('editDemand');
+Route::post('/request/delete-request', 'DemandController@deleteDemand')->name('deleteDemand');
+Route::post('/request/approve-or-reject', 'DemandController@approveOrReject')->name('approveOrReject');
 
 // item
 Route::get('/request/get-item-table', 'DemandController@getItemTable')->name('getItemTable');
@@ -43,6 +48,10 @@ Route::post('/request/delete-item', 'DemandController@deleteItem')->name('delete
 
 // payment
 Route::get('/payment', 'PaymentController@index')->name('payment');
+Route::get('/request/get-payment-data', 'PaymentController@getPaymentData')->name('getPaymentData');
+Route::get('/payment/get-payment-table', 'PaymentController@getPaymentTable')->name('getPaymentTable');
+Route::get('/payment/print-payment', 'PaymentController@printPayment')->name('printPayment');
+Route::post('/payment/approve-or-reject', 'PaymentController@approveOrReject')->name('approveOrRejectPayment');
 
 // stock
 Route::get('/atk', 'StockController@index')->name('stock');

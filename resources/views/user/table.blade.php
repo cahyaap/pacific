@@ -19,7 +19,7 @@
                 <td>{{ $user['role']->role }}</td>
                 <td class="text-center">
                     <a href="#" id="{{ $user->id }}" class="editUser" data-toggle="modal" data-target="#editUser">Edit</a>
-                    @if (Auth::user()->id !== $user->id)
+                    @if (Auth::user()->id !== $user->id && !in_array($user->id, $user_used))
                     <a href="#" id="{{ $user->id }}" class="deleteUser" data-toggle="modal" data-target="#deleteUser">Delete</a>
                     @endif
                     <a href="#" id="{{ $user->id }}" class="changePassword" data-toggle="modal" data-target="#changePassword">Password</a>

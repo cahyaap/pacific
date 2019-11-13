@@ -16,6 +16,6 @@ class DemandList extends Model
     }
     public function demand_item()
     {
-        return $this->hasMany(DemandItem::class, 'id');
+        return $this->belongsTo(DemandItem::class, 'demand_item_id');
     }
 }

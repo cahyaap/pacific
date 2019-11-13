@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Demand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
@@ -24,7 +25,12 @@ class UserController extends Controller
     public function getUserTable()
     {
         $users = User::with(['role'])->get();
-        return view('user.table', compact(['users']));
+        $users_used = Demand::select('created_by')->groupBy('created_by')->get();
+        $user_used = [];
+        foreach ($users_used as $user) {
+            array_push($user_used, $user->created_by);
+        }
+        return view('user.table', compact(['users', 'user_used']));
     }
 
     public function getUserData(Request $request)
