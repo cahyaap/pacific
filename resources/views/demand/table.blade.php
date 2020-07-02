@@ -35,6 +35,9 @@
                     @endif
                 </td>
                 <td class="text-center">
+                    @if ($demand->status === 2)
+                    <a target="_blank" href="{{ route('printDemand',['id'=>$demand->id]) }}" class="printDemand">Print</a>
+                    @endif
                     @if ((Auth::user()->role_id === 1 || (Auth::user()->role_id === 2 && $demand->status === 0) || (Auth::user()->role_id === 3 && $demand->status === 1)) && $demand->status < 2)
                     <a href="#" data-id="{{ $demand->id }}" approveOrReject="approve" class="approveDemand" data-toggle="modal" data-target="#approveDemand">Approve</a>
                     <a href="#" data-id="{{ $demand->id }}" approveOrReject="reject" class="rejectDemand" data-toggle="modal" data-target="#rejectDemand">Reject</a>

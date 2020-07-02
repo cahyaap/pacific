@@ -236,7 +236,7 @@
                         </table>
                     </div>
                     <div class="col-md-4 text-right">
-                        <a href="{{ route('printDemand') }}" target="_blank" class="btn btn-success" id="printBtn" style="display: none;">Print</a>
+                        <a href="#" target="_blank" class="btn btn-success" id="printBtn" style="display: none;">Print</a>
                     </div>
                 </div>
                 <br>

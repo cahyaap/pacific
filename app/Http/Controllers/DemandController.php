@@ -179,9 +179,10 @@ class DemandController extends Controller
         ]);
     }
 
-    public function printDemand() {
+    public function printDemand($id) {
+        $demand = Demand::with(['demand_list.demand_item', 'creator'])->where('id', $id)->get();
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('demand.print');
+        $pdf->loadView('demand.print', compact(['demand']));
         return $pdf->stream();
     }
 }

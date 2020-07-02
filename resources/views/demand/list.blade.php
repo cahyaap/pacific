@@ -446,11 +446,12 @@
         });
 
         $(document).on('click', '.detailDemand', function() {
+            var detailDemandId = $(this).attr('data-id');
             $.ajax({
                 url: "{{ route('getDemandData') }}",
                 data: {
                     send: true,
-                    id: $(this).attr('data-id')
+                    id: detailDemandId
                 },
                 beforeSend: function() {
                     $('#printBtn').hide();
@@ -499,6 +500,9 @@
                         status = "Rejected";
                     }
                     detailTotal = detailTotal + (detailTotal * detailPpn) + detailMaterai;
+                    var url = "{{ route('printDemand',['id'=>'print-id']) }}";
+                    url = url.replace('print-id', detailDemandId);
+                    $('#printBtn').attr('href', url);
                     $('#detail-demand-body').empty();
                     $('#detail-demand-body').append(body);
                     $('#ppnDetail').html(ppn);

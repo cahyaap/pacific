@@ -33,7 +33,7 @@ Route::post('/user/delete-user', 'UserController@deleteUser')->name('deleteUser'
 Route::get('/request', 'DemandController@index')->name('request');
 Route::get('/request/get-request-data', 'DemandController@getDemandData')->name('getDemandData');
 Route::get('/request/get-request-table', 'DemandController@getDemandTable')->name('getDemandTable');
-Route::get('/request/print-request', 'DemandController@printDemand')->name('printDemand');
+Route::get('/request/print-request/{id}', 'DemandController@printDemand')->name('printDemand');
 Route::post('/request/create-request', 'DemandController@createDemand')->name('createDemand');
 Route::post('/request/edit-request', 'DemandController@editDemand')->name('editDemand');
 Route::post('/request/delete-request', 'DemandController@deleteDemand')->name('deleteDemand');
